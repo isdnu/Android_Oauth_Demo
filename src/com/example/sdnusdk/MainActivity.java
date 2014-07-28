@@ -44,10 +44,8 @@ public class MainActivity  extends Activity{
 				Utils.saveTokenValue(MainActivity.this, "", Utils.TOKENVALUE, Context.MODE_PRIVATE);
 				Toast.makeText(getApplication(), "注销成功", Toast.LENGTH_SHORT).show();
 			}			
-		});
-		
-	}
-	
+		});		
+	}	
 	private  Handler mHandler =new Handler(new Handler.Callback(){		
 		String result = null;
 		@Override
