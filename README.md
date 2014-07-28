@@ -37,7 +37,7 @@
 		Returns: 
 		tokenKey&tokenSecret格式
 ###程序过程简要说明:
-	首先程序autoLogin(),查看是否用存储的 token ,如果有<br/>
+	首先程序autoLogin(),查看是否用存储的 token ,如果有
 //设置token<br />
 Oauth.setToken(tokenKey,tokenSecret);<br />
 //做一个刷新操作<br />
@@ -49,7 +49,8 @@ Oauth.startThread(mHandler, null,Oauth.REQ_TOKEN ,WelcomeActivity.this);
 此时会获得 oauth_token,调用requestTokenUrl(boolean forcelogin) 方法,返回用户授权地址形如:<br />
 		http://i.sdnu.edu.cn/oauth/authorize?oauth_token=11111111111111111111111111111111<br/>
 调用 webview 访问该地址.登录成功会返回 callback地址,形如:<br />
-		http://fakeurl.com/callback?from=isdnu#oauth_token=11111111111111111111111111111111&oauth_verifier<br/>=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br/>
+		http://fakeurl.com/callback?from=isdnu#oauth_token=11111111111111111111111111111111&oauth_verifier<br/>
+		=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br/>
 调用方法 Oauth.setOauthVerifier(url)  ,设置 OauthVerifier.
 接着执行Oauth.startThread(mHandler, null,Oauth.ACC_TOKEN,LoginActivity.this);	
 用  Request token 换取 Access Token , 认证成功之后 ,保存 token到储存器.用于自动登录.<br />
