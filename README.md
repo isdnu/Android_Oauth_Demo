@@ -1,7 +1,7 @@
 智慧山师 Android Oauth认证Demo
 ===================================
 ###Demo简要说明:
-	Demo实现 oauth认证过程,实现自动登录和注销功能,认证部分说明   http://i.sdnu.edu.cn/open/oauth.aspx
+Demo实现 oauth认证过程,实现自动登录和注销功能,认证部分说明   http://i.sdnu.edu.cn/open/oauth.aspx
 ###Sdnuapi_1.1 接口说明:
 		1
 		startThread(Handler mHandler, String url, int flag, Activity activity)
@@ -37,14 +37,14 @@
 		Returns: 
 		tokenKey&tokenSecret格式
 ###程序过程简要说明:
-	首先程序autoLogin(),查看是否用存储的 token ,如果有
-//设置token<br />
-Oauth.setToken(tokenKey,tokenSecret);<br />
+首先程序autoLogin(),查看是否用存储的 token ,如果有
+//设置token<br/>
+Oauth.setToken(tokenKey,tokenSecret);<br/>
 //做一个刷新操作<br />
 Oauth.startThread(mHandler,AppSDNU.get(Constants.BASE_URL) + AppSDNU.get(Constants.REF_URL),Oauth.METHOD,WelcomeActivity.this);
 如果刷新返回的token与请求时token一致,则认为token有效,则直接登录.<br />
 点击进入登录按钮页,进行 request token操作.<br/>
-//request token 操作
+//request token 操作<br/>
 Oauth.startThread(mHandler, null,Oauth.REQ_TOKEN ,WelcomeActivity.this);
 此时会获得 oauth_token,调用requestTokenUrl(boolean forcelogin) 方法,返回用户授权地址形如:<br />
 		http://i.sdnu.edu.cn/oauth/authorize?oauth_token=11111111111111111111111111111111<br/>
