@@ -43,13 +43,13 @@ Oauth.setToken(tokenKey,tokenSecret);<br />
 //做一个刷新操作<br />
 Oauth.startThread(mHandler,AppSDNU.get(Constants.BASE_URL) + AppSDNU.get(Constants.REF_URL),Oauth.METHOD,WelcomeActivity.this);
 如果刷新返回的token与请求时token一致,则认为token有效,则直接登录.<br />
-点击进入登录按钮页,进行 request token操作
+点击进入登录按钮页,进行 request token操作.<br/>
 //request token 操作
 Oauth.startThread(mHandler, null,Oauth.REQ_TOKEN ,WelcomeActivity.this);
 此时会获得 oauth_token,调用requestTokenUrl(boolean forcelogin) 方法,返回用户授权地址形如:<br />
-		http://i.sdnu.edu.cn/oauth/authorize?oauth_token=11111111111111111111111111111111
+		http://i.sdnu.edu.cn/oauth/authorize?oauth_token=11111111111111111111111111111111<br/>
 调用 webview 访问该地址.登录成功会返回 callback地址,形如:<br />
-		http://fakeurl.com/callback?from=isdnu#oauth_token=11111111111111111111111111111111&oauth_verifier=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+		http://fakeurl.com/callback?from=isdnu#oauth_token=11111111111111111111111111111111&oauth_verifier=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br/>
 调用方法 Oauth.setOauthVerifier(url)  ,设置 OauthVerifier.
 接着执行Oauth.startThread(mHandler, null,Oauth.ACC_TOKEN,LoginActivity.this);	
 用  Request token 换取 Access Token , 认证成功之后 ,保存 token到储存器.用于自动登录.<br />
