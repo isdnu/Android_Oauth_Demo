@@ -48,7 +48,7 @@ Oauth.startThread(mHandler, null,Oauth.REQ_TOKEN ,WelcomeActivity.this);<br/>
 此时会获得 oauth_token,调用requestTokenUrl(boolean forcelogin) 方法,返回用户授权地址形如:<br />
 	http://i.sdnu.edu.cn/oauth/authorize?oauth_token=11111111111111111111111111111111<br/>
 调用 webview 访问该地址.登录成功会返回 callback地址,形如:<br />
-　　http://fakeurl.com/callback?from=isdnu#oauth_token=11111111111111111111111111111111&oauth_verifier<br/>
+　　http://fakeurl.com/callback?from=isdnu#oauth_token=11111111111111111111111111111111<br/>&oauth_verifier
 　　=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br/>
 调用方法 Oauth.setOauthVerifier(url)  ,设置 OauthVerifier.
 接着执行Oauth.startThread(mHandler, null,Oauth.ACC_TOKEN,LoginActivity.this);	
