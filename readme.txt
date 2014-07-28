@@ -5,7 +5,7 @@
 #山东师范大学认证相关
 -libraryjars libs/sdnuapi_1.1.jar
 -keepclassmembers class cn.edu.sdnu.i.util.oauth.Oauth{
-   public void startThread(android.os.Handler,java.lang.String,android.app.Activity);
+   public void startThread(android.os.Handler,java.lang.String,java.lang.Integer,android.app.Activity);
 }   
 -keepclasseswithmembernames class * {
     native <methods>;
