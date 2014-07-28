@@ -1,4 +1,4 @@
-智慧山师 Android Oauth认证Demo
+﻿智慧山师 Android Oauth认证Demo
 ===================================
 ###Demo简要说明:
 Demo实现 oauth认证过程,实现自动登录和注销功能,认证部分说明   http://i.sdnu.edu.cn/open/oauth.aspx
@@ -46,21 +46,20 @@ Oauth.startThread(mHandler,AppSDNU.get(Constants.BASE_URL) + AppSDNU.get(Constan
 //request token 操作<br/>
 Oauth.startThread(mHandler, null,Oauth.REQ_TOKEN ,WelcomeActivity.this);<br/>
 此时会获得 oauth_token,调用requestTokenUrl(boolean forcelogin) 方法,返回用户授权地址形如:<br />
-		http://i.sdnu.edu.cn/oauth/authorize?oauth_token=11111111111111111111111111111111<br/>
+	http://i.sdnu.edu.cn/oauth/authorize?oauth_token=11111111111111111111111111111111<br/>
 调用 webview 访问该地址.登录成功会返回 callback地址,形如:<br />
-		http://fakeurl.com/callback?from=isdnu#oauth_token=11111111111111111111111111111111&oauth_verifier<br/>
-		=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br/>
+　　http://fakeurl.com/callback?from=isdnu#oauth_token=11111111111111111111111111111111&oauth_verifier<br/>
+　　=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br/>
 调用方法 Oauth.setOauthVerifier(url)  ,设置 OauthVerifier.
 接着执行Oauth.startThread(mHandler, null,Oauth.ACC_TOKEN,LoginActivity.this);	
-用  Request token 换取 Access Token , 认证成功之后 ,保存 token到储存器.用于自动登录.<br />
+用  Request token 换取 Access Token , 认证成功之后 ,保存 token到储存器.用于自动登录.<br/>
 String token = Oauth.getToken();
-Utils.saveTokenValue(LoginActivity.this, token, Utils.TOKENVALUE, Context.MODE_PRIVATE);
-
+Utils.saveTokenValue(LoginActivity.this,token,Utils.TOKENVALUE,Context.MODE_PRIVATE);
 
 注销操作:
-//置空操作.注销其实就是 清空  token对应的值.
-Oauth.setToken("", "");
-//清空储存密钥
-Utils.saveTokenValue(MainActivity.this, "", Utils.TOKENVALUE, Context.MODE_PRIVATE);
+//置空操作.注销其实就是 清空  token对应的值.<br/>
+Oauth.setToken("", "");<br/>
+//清空储存密钥<br/>
+Utils.saveTokenValue(MainActivity.this,"",Utils.TOKENVALUE, Context.MODE_PRIVATE);
 
 	
