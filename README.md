@@ -1,4 +1,1 @@
-JavaSDK
-=======
-
-Java SDK for i.sdnu.edu.cn OAuth
+android oauth »œ÷§demo
