@@ -1,0 +1,27 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.sdnusdk.WelcomeActivity"
+    tools:ignore="MergeRootFrame" >
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"     
+        android:layout_margin="5dp"
+        android:text="进入登录页" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/start"
+        android:layout_alignRight="@+id/start"
+        android:layout_below="@+id/start"
+        android:layout_margin="5dp"
+        android:text="操作显示" />
+
+</RelativeLayout>
