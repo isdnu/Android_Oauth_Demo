@@ -12,4 +12,5 @@
 }
 -keepclasseswithmembers class * {
     native <methods>;
-}											
+}
+#测试上传											
