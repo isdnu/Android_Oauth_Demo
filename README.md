@@ -37,7 +37,7 @@ Demo实现 oauth认证过程,实现自动登录和注销功能,认证部分说�
 		Returns: 
 		tokenKey&tokenSecret格式
 ###程序过程简要说明:
-使用此demo前请先到智慧山师申请 consumerKey和consumerSecret.<br/>
+使用此demo前请先到智慧山师申请 consumerKey和consumerSecret,并使用该方法AppSDNU.setAppKey(consumerKey, consumerSecret)设置.<br/>
 首先程序autoLogin(),查看是否有存储的 token ,如果有<br/>
 //设置token<br/>
 Oauth.setToken(tokenKey,tokenSecret);<br/>
