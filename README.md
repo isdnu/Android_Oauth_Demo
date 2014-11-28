@@ -37,14 +37,16 @@ Demo实现 oauth认证过程,实现自动登录和注销功能,认证部分说�
 		Returns: 
 		tokenKey&tokenSecret格式
 ###程序过程简要说明:
-使用此demo前请先到智慧山师申请 consumerKey和consumerSecret,并使用该方法AppSDNU.setAppKey(consumerKey, consumerSecret)设置.<br/>
-首先程序autoLogin(),查看是否有存储的 token ,如果有<br/>
+使用此demo前请先到智慧山师申请 consumerKey和consumerSecret,并使用该方法AppSDNU.setAppKey(consumerKey, consumerSecret)设置.
+对于公共信息接口,只进行这个操作即可.下面部分为获取私有接口服务的授权操作.<br/>
+##1.执行autoLogin()方法
+首先查看是否有存储的 token ,如果有<br/>
 //设置token<br/>
 Oauth.setToken(tokenKey,tokenSecret);<br/>
 //做一个刷新操作<br />
 Oauth.startThread(mHandler,AppSDNU.get(Constants.BASE_URL) + AppSDNU.get(Constants.REF_URL),Oauth.METHOD,WelcomeActivity.this);<br/>
-如果刷新返回的token与请求时token一致,则认为token有效,则直接登录.点击进入登录按钮页,进行 request token操作.<br/>
-//request token 操作<br/>
+如果刷新返回的token与请求时token一致,则认为token有效,则直接登录.否则需登录按钮页,进行 request token操作.<br/>
+##2.request token 操作<br/>
 Oauth.startThread(mHandler, null,Oauth.REQ_TOKEN ,WelcomeActivity.this);<br/>
 此时会获得 oauth_token,调用requestTokenUrl(boolean forcelogin) 方法,返回用户授权地址形如:<br />
 	http://i.sdnu.edu.cn/oauth/authorize?oauth_token=11111111111111111111111111111111<br/>
@@ -56,8 +58,8 @@ Oauth.startThread(mHandler, null,Oauth.REQ_TOKEN ,WelcomeActivity.this);<br/>
 String token = Oauth.getToken();
 Utils.saveTokenValue(LoginActivity.this,token,Utils.TOKENVALUE,Context.MODE_PRIVATE);
 
-注销操作:
-//置空操作.注销其实就是 清空  token对应的值.<br/>
+##3.注销操作
+//置空操作,清空token对应的值.<br/>
 Oauth.setToken("", "");<br/>
 //清空储存密钥<br/>
 Utils.saveTokenValue(MainActivity.this,"",Utils.TOKENVALUE, Context.MODE_PRIVATE);
