@@ -45,7 +45,7 @@ Demo实现 oauth认证过程,实现自动登录和注销功能,认证部分说�
 Oauth.setToken(tokenKey,tokenSecret);<br/>
 //做一个刷新操作<br />
 Oauth.startThread(mHandler,AppSDNU.get(Constants.BASE_URL) + AppSDNU.get(Constants.REF_URL),Oauth.METHOD,WelcomeActivity.this);<br/>
-如果刷新返回的token与请求时token一致,则认为token有效,则直接登录.否则需登录按钮页,进行 request token操作.<br/>
+如果刷新返回的token与请求时token一致,则认为token有效,则直接登录.否则点击"进入登录页"按钮,进行 request token操作.<br/>
 ####2.request token 操作<br/>
 Oauth.startThread(mHandler, null,Oauth.REQ_TOKEN ,WelcomeActivity.this);<br/>
 此时会获得 oauth_token,调用requestTokenUrl(boolean forcelogin) 方法,返回用户授权地址形如:<br />
